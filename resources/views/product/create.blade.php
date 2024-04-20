@@ -1,24 +1,38 @@
 <x-master>
-    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <label for="">name</label>
-        <input type="text" name="name" ><br>
-        <label for="">description</label>
-        <textarea name="description" id="" cols="30" rows="10"></textarea><br>
-        <label for="">Quantity</label>
-        <input type="number" name="quantity"  ><br>
-        <label for="">image</label>
-        <input type="file" name="image" id="" ><br>
-        <label for="">price</label>
-        <input type="number" name="price" ><br>
-        <label for="">Category</label>
-        <select name="category_id" id="">
-            <option value="" selected disabled>select category</option>
-           @foreach ($categories as $categorie )
-                <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
-           @endforeach
+    <div class="container">
+        <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data" class="mt-4">
+            @csrf
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" class="form-control" id="description" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" name="quantity" class="form-control" id="quantity">
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="file" name="image" class="form-control-file" id="image">
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" name="price" class="form-control" id="price">
+            </div>
+            <div class="form-group">
+                <label for="category_id">Category</label>
+                <select name="category_id" class="form-control" id="category_id">
+                    <option value="" selected disabled>Select category</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
 
-        </select>
-        <button>add</button>
-    </form>
 </x-master>
