@@ -13,7 +13,7 @@
 <div>
     @if ($errors->any())
 
-        <div>
+        <div class="container">
             <strong>Errors:</strong>
             <ul>
                 @foreach ($errors->all() as $error)

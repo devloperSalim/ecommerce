@@ -1,6 +1,6 @@
 
 <x-master>
-    
+    <div class="container">
     <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data" class="mt-4">
         @csrf
         @method('PUT')
@@ -42,5 +42,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
+</div>
 
 </x-master>
