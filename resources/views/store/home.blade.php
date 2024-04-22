@@ -4,23 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-    @if (Route::has('login'))
-    <div class="ml-auto"> <!-- Using "ml-auto" class to push these links to the right -->
-        @auth
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    @auth
+                        <li class="nav-item">
+                            <a href="{{ route('logout') }}" class="nav-link">Logout</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a href="{{ route('login') }}" class="nav-link">Log in</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a href="{{ route('register') }}" class="nav-link">Register</a>
+                            </li>
+                        @endif
+                    @endauth
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-            <a href="{{ route('logout') }}" class="nav-link">Logout</a>
-        @else
-            <a href="{{ route('login') }}" class="nav-link">Log in</a>
 
-            @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="nav-link">Register</a>
-            @endif
-        @endauth
-    </div>
-@endif
 @php
     use \Illuminate\Support\Facades\Request;
 
