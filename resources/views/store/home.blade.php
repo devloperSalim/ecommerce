@@ -33,19 +33,17 @@
             </div>
         </div>
     </nav>
-
-
 @php
     use \Illuminate\Support\Facades\Request;
 
     $categoiesId = Request::input('categories') ?? [];
 @endphp
 
-<div>
-    <form method="GET">
-        <div>
+<div class="container pt-5 text-left w-50">
+    <form method="GET" >
+        <div class="form-group">
             <label for="">Name or Description</label>
-            <input type="text" value="{{ Request::input('name') }}" name="name" id="name" placeholder="Name">
+            <input type="text" value="{{ Request::input('name') }}" name="name" id="name" placeholder="Name" class="form-control">
         </div>
 
         <h3>Categorie</h3>
@@ -53,27 +51,27 @@
         <div>
             @foreach ($categories as $categorie )
 
-            <div>
-                <input type="checkbox" @checked(in_array($categorie->id , $categoiesId )) name="categories[]" value="{{ $categorie->id }}" id="">
+            <div class="form-group">
+                <input type="checkbox" @checked(in_array($categorie->id , $categoiesId )) name="categories[]" value="{{ $categorie->id }}" class="form-checkbox">
                 <label>{{ $categorie->name }}</label>
             </div>
 
             @endforeach
         </div>
-            <h3>Price</h3>
-        <div>
+            <h3 class="">Price</h3>
+        <div class="form-group">
             <label for="">min</label>
-        <input min="{{ $pricesOptions->minPrice}}" max="{{ $pricesOptions->maxPrice }}" type="number" value="{{ Request::input('min') }}" name="min" id="">
+        <input min="{{ $pricesOptions->minPrice}}" max="{{ $pricesOptions->maxPrice }}" type="number" value="{{ Request::input('min') }}" name="min" class="form-control">
         </div>
-        <div>
+        <div class="form-group">
             <label for="">max</label>
-            <input min="{{ $pricesOptions->minPrice}}" max="{{ $pricesOptions->maxPrice }}" type="number" name="max" value="{{ Request::input('max') }}" id="">
+            <input min="{{ $pricesOptions->minPrice}}" max="{{ $pricesOptions->maxPrice }}" type="number" name="max" value="{{ Request::input('max') }}" class="form-control">
         </div>
 
 
-        <div>
-            <input type="submit" value="Filter">
-            <a href="{{ route('home') }}" type="reset">Reset</a>
+        <div class="form-group">
+            <input type="submit" value="Filter" class="btn btn-primary">
+            <a href="{{ route('home') }}" type="reset" class="btn btn-dark">Reset</a>
         </div>
     </form>
 </div>
