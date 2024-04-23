@@ -14,6 +14,7 @@ dump(Route::is('products*'))
 
         <a class="nav-item nav-link" href="{{ route('products.index') }}">Product</a>
         <a class="nav-item nav-link" href="{{ route('categories.index') }}">Categories</a>
+        <a class="nav-item nav-link" href="{{ route('products.create') }}">create product</a>
 
         @if (Route::has('login'))
             <div class="ml-auto"> <!-- Using "ml-auto" class to push these links to the right -->
