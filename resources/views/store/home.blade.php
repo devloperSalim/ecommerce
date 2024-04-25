@@ -77,7 +77,8 @@
 
     $categoiesId = Request::input('categories') ?? [];
    @endphp
-   <h1>list produit</h1>
+   <h1 class="ml-5 pt-2">list produit</h1>
+   <hr>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-4">
